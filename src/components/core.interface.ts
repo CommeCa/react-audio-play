@@ -16,6 +16,7 @@ export interface AudioInterface {
   onPause?: () => void;
   onEnd?: () => void;
   onError?: (event: React.SyntheticEvent<HTMLAudioElement, Event>, errorMessage: string) => void;
+  onLoadedMetadata?: (audioRed: HTMLAudioElement) => void
 }
 
 export interface AudioPlayerRef {
