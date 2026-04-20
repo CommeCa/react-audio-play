@@ -25,7 +25,8 @@ export const AudioPlayer = forwardRef<AudioPlayerRef | undefined, AudioInterface
       onPlay,
       onPause,
       onEnd,
-      onError
+      onError,
+      onLoadedMetadata
     },
     ref
   ) => {
@@ -174,6 +175,7 @@ export const AudioPlayer = forwardRef<AudioPlayerRef | undefined, AudioInterface
         setTotalTime(formatTime(audioRef.current.duration ?? 0));
         const currentTime = audioRef.current.duration * coefficient;
         audioRef.current.currentTime = currentTime;
+        onLoadedMetadata?.(audioRef.current);
       }
     };
 
